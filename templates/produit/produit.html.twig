@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page Produit : {{ produit.name }}{% endblock %}
+
+{% block body %}
+<style>
+
+</style>
+<div class="mb-4">
+  <h1>{{produit.name}}</h1>
+  <p>{{ 'produit.stock'|trans }} : {{produit.stock}}</p>
+  <p>{{ 'Prix'|trans }} : {{produit.prix}}€</p>
+  <img src="{{asset('/uploads/'~ produit.photo)}}" class="img-thumbnail" style="height:120px">
+</div>
+<div class="mb-4">
+  <hr>
+  <h2>{{ 'panier.ajouter'|trans }}</h2>
+  {{ form(form_panier) }}
+</div>
+<a href="{{ path('supprimer_produit', {'id':produit.id}) }}" class="btn btn-danger">{{ 'produit.supprimer'|trans }}</a>
+
+</div>
+{% endblock %}

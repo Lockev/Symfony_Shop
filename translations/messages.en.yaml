@@ -1,0 +1,37 @@
+produit:
+  titre: "All products"
+  stock: "Amount in stock"
+  supprimer: "Delete this product"
+  image: "Picture"
+  ajouter: "Create a new product"
+
+panier:
+  titre: "My cart"
+  retirerProduit: "Remove this article form cart"
+  acheter: "Buy this cart"
+  ajouter: "Add to cart"
+
+flash:
+  error:
+    uploadPicture: "Unable to upload this file"
+    productStock: "There is not enough of this product currently in stock"
+    productMissing: "Unable to find this product"
+    cartError: "There was an error, your cart couldn't have been purchased"
+  success:
+    productRemoved: "Product removed"
+    productDeleted: "Product deleted"
+    productAddedToCart: "Product successfully added to cart"
+    productAdded: "Product created"
+    cartValidated: "Cart sucessfully purchased"
+
+Nom: "Name"
+Name: "Name"
+Qte: "Quantity"
+Stock: "Stock"
+Prix: "Price"
+Montant: "Price"
+Photo: "Picture"
+Submit: "Add to cart"
+Sauvegarder: "Add to product list"
+Produit: "Product"
+Acheter: "Buy"

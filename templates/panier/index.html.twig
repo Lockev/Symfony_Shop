@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voici votre panier !{% endblock %}
+
+{% block body %}
+<style>
+</style>
+  <h1>{{ 'panier.titre'|trans }}</h1>
+  {% if panier is not empty %}
+    
+    {% set prixPanier = 0 %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>{{ 'Nom'|trans }}</th>
+          <th>{{ 'Qte'|trans }}</th>
+          <th>{{ 'Montant'|trans }}</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for article in panier %}
+          <tr>
+            <td class="align-middle"><a href="{{ path('produit', {'id':article.produit.id}) }}">{{ article.produit.name }}</a></td>
+            
+            <td class="align-middle">{{ article.qte }}</td>
+            <td class="align-middle">{{ article.produit.prix * article.qte }}€</td>
+            {% set prixPanier = prixPanier + (article.produit.prix * article.qte) %}
+            <td class="align-middle"><a href="{{ path('supprimer_produit', {'id':article.produit.id}) }}" class="btn btn-danger">{{ 'panier.retirerProduit'|trans }}</a></td>
+          </tr>
+        {% endfor %}
+        <tr>
+        <td> <p class="btn btn-secondary btn-sm">{{ panier|length }} {{ 'Produit'|trans }}{% if panier|length > 1 %}s{% endif %}</p></td>
+        <td></td>
+        <td style="font-weight:bold">{{ prixPanier }}€</td>
+        <td></td>
+      </tbody>
+    </table>
+    <a href="{{ path('acheter_panier') }}" class="btn btn-success">{{ 'Acheter'|trans }}</a>
+  {% else %}
+    <p>Il n'y a aucun produits.
+  {% endif %}
+{% endblock %}
